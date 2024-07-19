@@ -57,87 +57,21 @@
 
 
                 <tbody>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Tony Adam</td>
-                    <td>tony2023</td>
-                    <td>tony@gmail.com</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Tony Adam</td>
-                    <td>tony2023</td>
-                    <td>tony@gmail.com</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Tony Adam</td>
-                    <td>tony2023</td>
-                    <td>tony@gmail.com</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Tony Adam</td>
-                    <td>tony2023</td>
-                    <td>tony@gmail.com</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Tony Adam</td>
-                    <td>tony2023</td>
-                    <td>tony@gmail.com</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Tony Adam</td>
-                    <td>tony2023</td>
-                    <td>tony@gmail.com</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Tony Adam</td>
-                    <td>tony2023</td>
-                    <td>tony@gmail.com</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Tony Adam</td>
-                    <td>tony2023</td>
-                    <td>tony@gmail.com</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Tony Adam</td>
-                    <td>tony2023</td>
-                    <td>tony@gmail.com</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Tony Adam</td>
-                    <td>tony2023</td>
-                    <td>tony@gmail.com</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                </tr>
-                
+                    @foreach ($users as $user)
+                    <tr>
+                        <td>{{ $user->created_at }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->username }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->active ? 'Yes': 'No' }}</td>
+                        <td>
+                            <a href="{{route('editUser',$user->id )}}">
+                                <img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit">
+                            </a>
+                        </td>
+                    </tr>
+                    @endforeach
+                    
                 </tbody>
             </table>
             </div>

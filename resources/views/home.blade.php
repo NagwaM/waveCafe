@@ -1,40 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @include('includes.head')
-</head>
-<body>
-  <div class="tm-container">
-    <div class="tm-row">
-      <!-- Site Header -->
-       @include('includes.siteHeader')
-            <!-- Drink Menu Page -->
-             @include('includes.drinkMenu')
-            <!-- end Drink Menu Page -->
-          </div>
+@extends('layouts.app')
 
-          <!-- About Us Page -->
-           @include('includes.aboutUs')
-          <!-- end About Us Page -->
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
-          <!-- Special Items Page -->
-          @include('includes.specialItems')
-          <!-- end Special Items Page -->
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-          <!-- Contact Page -->
-          @include('includes.contactUs')
-          <!-- end Contact Page -->
-        </main>
-      </div>    
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
     </div>
-    <footer class="tm-site-footer">
-      <p class="tm-black-bg tm-footer-text">Copyright 2020 Wave Cafe
-      
-      | Design: <a href="https://www.tooplate.com" class="tm-footer-link" rel="sponsored" target="_parent">Tooplate</a></p>
-    </footer>
-  </div>
-    
-  <!-- Background video -->
-  @include('includes.backgroundVideo')
-</body>
-</html>
+</div>
+@endsection

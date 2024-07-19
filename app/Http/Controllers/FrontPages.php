@@ -8,6 +8,6 @@ class FrontPages extends Controller
 {
     public function index(){
         $title = "Wave Cafe Website";
-        return view('home', compact('title'));
+        return view('Home', compact('title'));
     }
 }

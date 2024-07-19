@@ -31,11 +31,6 @@ class AdminPages extends Controller
         return view('admin.categories', compact('title'));
     }
 
-    public function users(){
-        $title = "Users Page";
-        return view('admin.users', compact('title'));
-    }
-
     public function message(){
         $title = "Messages Page";
         return view('admin.messages', compact('title'));
