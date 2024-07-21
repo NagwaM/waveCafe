@@ -54,16 +54,17 @@
 
 
                 <tbody>
-                <tr>
-                    <td>Category</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                    <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
-                </tr>
-                <tr>
-                    <td>Category</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                    <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
-                </tr>
+                    @foreach($categories as $category)
+                    <tr>
+                        <td>{{ $category->categoryName }}</td>
+                        <td>
+                            <a href="{{route('ShowEditCategory',$category->id )}}">
+                                <img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit">
+                            </a>
+                        </td>
+                        <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
+                    </tr>
+                    @endforeach
                 
                 </tbody>
             </table>

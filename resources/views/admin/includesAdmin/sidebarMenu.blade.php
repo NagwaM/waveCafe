@@ -5,12 +5,12 @@
 			<li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
 					<li><a href="users">Users List</a></li>
-					<li><a href="AddUser">Add User</a></li>
+					<li><a href="ShowAddUser">Add User</a></li>
 				</ul>
 			</li>
 			<li><a><i class="fa fa-edit"></i> Categories <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
-					<li><a href="AddCategory">Add Category</a></li>
+					<li><a href="ShowAddCategory">Add Category</a></li>
 					<li><a href="categories">Categories List</a></li>
 				</ul>
 			</li>

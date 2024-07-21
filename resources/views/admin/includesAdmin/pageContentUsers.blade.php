@@ -65,7 +65,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->active ? 'Yes': 'No' }}</td>
                         <td>
-                            <a href="{{route('editUser',$user->id )}}">
+                            <a href="{{route('ShowEditUser',$user->id )}}">
                                 <img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit">
                             </a>
                         </td>
