@@ -16,7 +16,12 @@
 										<span>Settings</span>
 									</a>
 									<a class="dropdown-item" href="javascript:;">Help</a>
-									<a class="dropdown-item" href="login"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+									<a class="dropdown-item" href="javascript:;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+										<i class="fa fa-sign-out pull-right"></i> Log Out
+									</a>
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+										@csrf
+									</form>
 								</div>
 							</li>
 

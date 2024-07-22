@@ -16,7 +16,7 @@ Route::get('/', function () {
 Route::get('Homee', [FrontPages::class, 'index'])->name('Homee');
 
 
-Route::get('users', [UsersController::class, 'index'])->name('users');
+Route::get('users', [UsersController::class, 'index'])->name('users')->middleware('verified');
 Route::get('ShowAddUser',[UsersController::class, 'create'])->name('ShowAddUser');
 Route::post('AddUser',[UsersController::class, 'store'])->name('AddUser');
 Route::get('ShowEditUser/{id}',[UsersController::class, 'edit'])->name('ShowEditUser');
@@ -37,10 +37,9 @@ Route::put('editBeverage/{id}',[BeverageController::class, 'update'])->name('edi
 
 Route::get('messages', [AdminPages::class, 'message'])->name('messages');
 Route::get('showMessage', [AdminPages::class, 'showMessage'])->name('showMessage');
-//Route::get('editBeverage', [AdminPages::class, 'editBeverage'])->name('editBeverage');
 
-Route::get('registerr', [AdminPages::class, 'registerUser'])->name('registerr');
-Route::get('loginn', [AdminPages::class, 'loginUser'])->name('loginn');
+// Route::get('registerr', [AdminPages::class, 'registerUser'])->name('registerr');
+// Route::get('loginn', [AdminPages::class, 'loginUser'])->name('loginn');
 
 //Auth::routes();
 Auth::routes(['verify' => true]);
@@ -48,3 +47,4 @@ Auth::routes(['verify' => true]);
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified');
 
+Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
