@@ -40,7 +40,9 @@ class UsersController extends Controller
             'password' => 'required',
         ], $messages);
 
+        $data['password'] = bcrypt($data['password']);
         $data['active'] = isset($request->active);
+        $data['email_verified_at'] = now();
 
         User::create($data);
         return redirect('users');
@@ -73,9 +75,9 @@ class UsersController extends Controller
 
         $data = $request->validate([
             'name' => 'required|max:100|min:5',
-            'username' => 'required|min:11',
+            'username' => 'required|max:100|min:5',
             'email' => 'required|email:rfc',
-            'password' => 'required',
+            'password' => 'nullable|min:8',
         ], $messages);
 
         $user = User::findOrFail($id);
@@ -83,12 +85,15 @@ class UsersController extends Controller
         if (!empty($data['password'])) {
             $user->password = bcrypt($data['password']);
         }
+        else{
+            unset($data['password']);
+        }
+        
+        $user->update($data);
 
         // If the active checkbox is not checked, it won't be present in the request
         // So we explicitly check if it's set
         $data['active'] = $request->has('active') ? 1 : 0;
-     
-        User::where('id', $id)->update($data);
         return redirect('users');
     }
 

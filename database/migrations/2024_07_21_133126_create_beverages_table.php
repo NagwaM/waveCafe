@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('title', 100);
             $table->string('content', 100);
             $table->decimal('price', 8, 2);
-            $table->boolean('published');
-            $table->boolean('special');
+            $table->boolean('published')->default(1);
+            $table->boolean('special')->default(1);
             $table->string('image', 100);
             $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();

@@ -41,33 +41,55 @@
                     </div>
                     <div class="x_content">
                         <br />
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        <form action="{{ route('editUser', $user->id ) }}" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            @csrf
+                            @method('put')
 
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Full Name <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Full Name <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" id="first-name" required="required" class="form-control ">
+                                    <input type="text" id="name" name="name" required="required" class="form-control " value="{{ $user->name }}">
+                                    <p style="color: red">
+                                        @error('name')
+                                        {{ $message }}
+                                        @enderror
+									</p>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="user-name">Username <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="username">Username <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" id="user-name" name="user-name" required="required" class="form-control">
+                                    <input type="text" id="username" name="username" required="required" class="form-control" value="{{ $user->username }}">
+                                    <p style="color: red">
+                                        @error('username')
+                                        {{ $message }}
+                                        @enderror
+									</p>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label for="email" class="col-form-label col-md-3 col-sm-3 label-align">Email <span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input id="email" class="form-control" type="email" name="email" required="required">
+                                    <input id="email" class="form-control" type="email" name="email" required="required" value="{{ $user->email }}">
+                                    <p style="color: red">
+                                        @error('email')
+                                        {{ $message }}
+                                        @enderror
+									</p>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" class="flat">
+                                        <input type="checkbox" class="flat" id="active" name="active" value="1" {{ $user->active ? 'checked' : '' }}>
+                                        <p style="color: red">
+                                            @error('active')
+                                            {{ $message }}
+                                            @enderror
+                                        </p>
                                     </label>
                                 </div>
                             </div>
@@ -75,7 +97,12 @@
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Password <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="password" id="password" name="password" required="required" class="form-control">
+                                    <input type="password" id="password" name="password" required="required" class="form-control" value="{{ $user->password }}">
+                                    <p style="color: red">
+                                        @error('password')
+                                        {{ $message }}
+                                        @enderror
+									</p>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

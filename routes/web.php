@@ -38,12 +38,8 @@ Route::put('editBeverage/{id}',[BeverageController::class, 'update'])->name('edi
 Route::get('messages', [AdminPages::class, 'message'])->name('messages');
 Route::get('showMessage', [AdminPages::class, 'showMessage'])->name('showMessage');
 
-// Route::get('registerr', [AdminPages::class, 'registerUser'])->name('registerr');
-// Route::get('loginn', [AdminPages::class, 'loginUser'])->name('loginn');
 
-//Auth::routes();
 Auth::routes(['verify' => true]);
-
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified');
 
