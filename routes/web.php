@@ -37,7 +37,7 @@ Route::put('editBeverage/{id}',[BeverageController::class, 'update'])->name('edi
 
 Route::get('messages', [AdminPages::class, 'message'])->name('messages');
 Route::get('showMessage', [AdminPages::class, 'showMessage'])->name('showMessage');
-Route::get('editBeverage', [AdminPages::class, 'editBeverage'])->name('editBeverage');
+//Route::get('editBeverage', [AdminPages::class, 'editBeverage'])->name('editBeverage');
 
 Route::get('registerr', [AdminPages::class, 'registerUser'])->name('registerr');
 Route::get('loginn', [AdminPages::class, 'loginUser'])->name('loginn');
