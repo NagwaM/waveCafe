@@ -56,28 +56,20 @@
 
 
                 <tbody>
+                    @foreach($beverages as $beverage)
                 <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Title</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
+                    <td>{{ $beverage->created_at }}</td>
+                    <td>{{ $beverage->title }}</td>
+                    <td>{{ $beverage->published ? 'Yes': 'No' }}</td>
+                    <td>
+                        <a href="{{route('ShowEditBeverage',$beverage->id )}}">
+                            <img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit">
+                        </a>
+                    </td>
                     <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
                 </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Title</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                    <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
-                </tr>
-                <tr>
-                    <td>1 Jan 2023</td>
-                    <td>Title</td>
-                    <td>Yes</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                    <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
-                </tr>
-                
+                @endforeach
+                    
                 </tbody>
             </table>
             </div>

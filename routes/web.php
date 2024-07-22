@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminPages;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BeverageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,12 +15,6 @@ Route::get('/', function () {
 
 Route::get('Homee', [FrontPages::class, 'index'])->name('Homee');
 
-Route::get('AddBeverage', [AdminPages::class, 'addBeverage'])->name('AddBeverage');
-//Route::get('AddCategory', [AdminPages::class, 'addCategory'])->name('AddCategory');
-// Route::get('AddUser', [AdminPages::class, 'addUser'])->name('AddUser');
-
-
-Route::get('beverages', [AdminPages::class, 'beverages'])->name('beverages');
 
 Route::get('users', [UsersController::class, 'index'])->name('users');
 Route::get('ShowAddUser',[UsersController::class, 'create'])->name('ShowAddUser');
@@ -33,10 +28,15 @@ Route::post('AddCategory', [CategoryController::class, 'store'])->name('AddCateg
 Route::get('ShowEditCategory/{id}',[CategoryController::class, 'edit'])->name('ShowEditCategory');
 Route::put('editCategory/{id}',[CategoryController::class, 'update'])->name('editCategory');
 
+Route::get('beverages', [BeverageController::class, 'index'])->name('beverages');
+Route::get('ShowAddBeverage', [BeverageController::class, 'create'])->name('ShowAddBeverage');
+Route::post('AddBeverage', [BeverageController::class, 'store'])->name('AddBeverage');
+Route::get('ShowEditBeverage/{id}',[BeverageController::class, 'edit'])->name('ShowEditBeverage');
+Route::put('editBeverage/{id}',[BeverageController::class, 'update'])->name('editBeverage');
+
 
 Route::get('messages', [AdminPages::class, 'message'])->name('messages');
 Route::get('showMessage', [AdminPages::class, 'showMessage'])->name('showMessage');
-
 Route::get('editBeverage', [AdminPages::class, 'editBeverage'])->name('editBeverage');
 
 Route::get('registerr', [AdminPages::class, 'registerUser'])->name('registerr');

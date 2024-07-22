@@ -41,32 +41,53 @@
 					</div>
 					<div class="x_content">
 						<br />
-						<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+						<form  action="{{ route('AddBeverage') }}" method="POST" enctype="multipart/form-data" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+							@csrf
 							<div class="item form-group">
 								<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
 								</label>
 								<div class="col-md-6 col-sm-6 ">
-									<input type="text" id="title" required="required" class="form-control ">
+									<input type="text" id="title" name="title" required="required" class="form-control " value="{{ old('title') }}">
+									<p style="color: red">
+                                        @error('title')
+                                        {{ $message }}
+                                        @enderror
+                                    </p> 
 								</div>
 							</div>
 							<div class="item form-group">
 								<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
 								</label>
 								<div class="col-md-6 col-sm-6 ">
-									<textarea id="content" name="content" required="required" class="form-control">Contents</textarea>
+									<textarea id="content" name="content" required="required" class="form-control">{{ old('content') }}</textarea>
+									<p style="color: red">
+                                        @error('content')
+                                        {{ $message }}
+                                        @enderror
+                                    </p> 
 								</div>
 							</div>
 							<div class="item form-group">
 								<label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span class="required">*</span></label>
 								<div class="col-md-6 col-sm-6 ">
-									<input id="price" class="form-control" type="number" name="price" required="required">
+									<input id="price" class="form-control" type="number" name="price" required="required" value="{{ old('price') }}">
+									<p style="color: red">
+                                        @error('price')
+                                        {{ $message }}
+                                        @enderror
+                                    </p> 
 								</div>
 							</div>
 							<div class="item form-group">
 								<label class="col-form-label col-md-3 col-sm-3 label-align">Published</label>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" class="flat">
+										<input type="checkbox" class="flat" id="published" name="published" value="1" {{ old('published') ? 'checked' : '' }}>
+										<p style="color: red">
+											@error('published')
+											{{ $message }}
+											@enderror
+										</p> 
 									</label>
 								</div>
 							</div>
@@ -74,7 +95,12 @@
 								<label class="col-form-label col-md-3 col-sm-3 label-align">Special</label>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" class="flat">
+										<input type="checkbox" class="flat" id="special" name="special" value="1" {{ old('special') ? 'checked' : '' }}>
+										<p style="color: red">
+											@error('special')
+											{{ $message }}
+											@enderror
+										</p> 
 									</label>
 								</div>
 							</div>
@@ -90,10 +116,10 @@
 								<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Category <span class="required">*</span>
 								</label>
 								<div class="col-md-6 col-sm-6 ">
-									<select class="form-control" name="category" id="">
+									<select class="form-control" name="category_id" id="category_id">
 										<option value=" ">Select Category</option>
-										<option value="cat1">Category 1</option>
-										<option value="cat2">Category 2</option>
+										<option value="1" {{ old('category_id') == '1' ? 'selected' : ' ' }}>Hot Drinks</option>
+										<option value="2" {{ old('category_id') == '2' ? 'selected' : ' ' }}>Cold Drinks</option>
 									</select>
 								</div>
 							</div>
