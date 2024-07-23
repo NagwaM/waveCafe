@@ -53,25 +53,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>First Name and Last Name</td>
-                    <td>mail@example.com</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                    <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
-                </tr>
-                <tr>
-                    <td>First Name and Last Name</td>
-                    <td>mail@example.com</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                    <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
-                </tr>
-                <tr>
-                    <td>First Name and Last Name</td>
-                    <td>mail@example.com</td>
-                    <td><img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit"></td>
-                    <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
-                </tr>
-                
+                    @foreach($messages as $message)
+                    <tr>
+                        <td>{{ $message->name }}</td>
+                        <td>{{ $message->email }}</td>
+                        <td>
+                            <a href="{{route('ShowMessage',$message->id )}}">
+                                <img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit">
+                            </a>
+                        </td>
+                        <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
             </div>

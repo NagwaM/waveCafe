@@ -4,7 +4,8 @@
               <p>Wave Cafe Template has a video background. You can use this layout for your websites. Please contact Tooplate's Facebook page. Tell your friends about our website.</p>
             </div>
             <div class="tm-black-bg tm-contact-form-container tm-align-right">
-              <form action="" method="POST" id="contact-form">
+              <form action="{{ route('AddMessage') }}" method="POST" id="contact-form">
+                @csrf
                 <div class="tm-form-group">
                   <input type="text" name="name" class="tm-form-control" placeholder="Name" required="" />
                 </div>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BeverageController;
+use App\Http\Controllers\MessageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,9 +37,10 @@ Route::get('ShowEditBeverage/{id}',[BeverageController::class, 'edit'])->name('S
 Route::put('editBeverage/{id}',[BeverageController::class, 'update'])->name('editBeverage');
 Route::delete('deleteBeverage',[BeverageController::class, 'destroy'])->name('deleteBeverage');
 
+Route::get('messages', [MessageController::class, 'index'])->name('messages');
+Route::post('AddMessage', [MessageController::class, 'store'])->name('AddMessage');
+Route::get('ShowMessage/{id}', [MessageController::class, 'show'])->name('ShowMessage');
 
-Route::get('messages', [AdminPages::class, 'message'])->name('messages');
-Route::get('showMessage', [AdminPages::class, 'showMessage'])->name('showMessage');
 
 
 Auth::routes(['verify' => true]);
