@@ -39,7 +39,7 @@ class MessageController extends Controller
         ], $messages);
 
         Message::create($data);
-        return redirect()->back()->with('success', 'Message sent successfully.');
+        return redirect()->route('contactUs')->with('success', 'Message sent successfully.');
     }
 
     /**

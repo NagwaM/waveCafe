@@ -4,6 +4,11 @@
               <p>Wave Cafe Template has a video background. You can use this layout for your websites. Please contact Tooplate's Facebook page. Tell your friends about our website.</p>
             </div>
             <div class="tm-black-bg tm-contact-form-container tm-align-right">
+              @if(session('success'))
+                  <div class="alert alert-success">
+                      {{ session('success') }}
+                  </div>
+              @endif
               <form action="{{ route('AddMessage') }}" method="POST" id="contact-form">
                 @csrf
                 <div class="tm-form-group">

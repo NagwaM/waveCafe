@@ -19,7 +19,7 @@
 									<a class="dropdown-item" href="javascript:;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 										<i class="fa fa-sign-out pull-right"></i> Log Out
 									</a>
-									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+									<form id="logout-form" action="{{ route('logout') }}" method="POST">
 										@csrf
 									</form>
 								</div>
@@ -31,42 +31,6 @@
 									<span class="badge bg-green">6</span>
 								</a>
 								<ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-									<li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="{{ asset('assetsAdmin/images/img.jpg') }}" alt="Profile Image" /></span>
-											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="{{ asset('assetsAdmin/images/img.jpg') }}" alt="Profile Image" /></span>
-											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="{{ asset('assetsAdmin/images/img.jpg') }}" alt="Profile Image" /></span>
-											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li>
 									<li class="nav-item">
 										<a class="dropdown-item">
 											<span class="image"><img src="{{ asset('assetsAdmin/images/img.jpg') }}" alt="Profile Image" /></span>
