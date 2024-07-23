@@ -12,6 +12,10 @@ class MessageController extends Controller
      */
     public function index()
     {
+        // $title = "Messages Page";
+        // $messages = Message::orderBy('created_at', 'desc')->get(); // Order messages by creation date, most recent first
+        // //$unreadMessagesCount = Message::where('is_read', false)->count(); // Count unread messages
+        // return view('admin.messages', compact('messages', 'title'));
         $title = "Messages Page";
         $messages = Message::get();
         return view('admin.messages', compact('messages', 'title'));
@@ -39,7 +43,7 @@ class MessageController extends Controller
         ], $messages);
 
         Message::create($data);
-        return redirect()->route('contactUs')->with('success', 'Message sent successfully.');
+        return redirect()->back()->with('success', 'Message sent successfully.');
     }
 
     /**

@@ -28,21 +28,29 @@
 							<li role="presentation" class="nav-item dropdown open">
 								<a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
 									<i class="fa fa-envelope-o"></i>
-									<span class="badge bg-green">6</span>
+									<span class="badge bg-green">{{ count($messages) }}</span>
 								</a>
 								<ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-									<li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="{{ asset('assetsAdmin/images/img.jpg') }}" alt="Profile Image" /></span>
-											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li>
+								    @forelse($messages as $message)
+										<li class="nav-item">
+											<a class="dropdown-item">
+												<span class="image"><img src="{{ asset('assetsAdmin/images/img.jpg') }}" alt="Profile Image" /></span>
+												<span>
+													<span>{{ $message->name }}</span>
+													<span class="time">{{ $message->created_at->diffForHumans() }}</span>
+												</span>
+												<span class="message">
+													{{ Str::limit($message->message, 10) }}
+												</span>
+											</a>
+										</li>
+									@empty
+										<li class="nav-item">
+											<a class="dropdown-item">
+												<span>No new messages</span>
+											</a>
+										</li>
+									@endforelse
 									<li class="nav-item">
 										<div class="text-center">
 											<a class="dropdown-item">

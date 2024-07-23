@@ -128,6 +128,7 @@
                                         <option value=" ">Select Category</option>
                                         <option value="1" {{ $beverage->category_id == '1' ? 'selected' : '' }}>Hot Drinks</option>
                                         <option value="2" {{ $beverage->category_id == '2' ? 'selected' : '' }}>Cold Drinks</option>
+                                        <option value="3" {{ $beverage->category_id == '3' ? 'selected' : '' }}>Smoothies</option>
                                     </select>
                                 </div>
                             </div>
