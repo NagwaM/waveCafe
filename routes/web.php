@@ -40,6 +40,7 @@ Route::delete('deleteBeverage',[BeverageController::class, 'destroy'])->name('de
 Route::get('messages', [MessageController::class, 'index'])->name('messages');
 Route::post('AddMessage', [MessageController::class, 'store'])->name('AddMessage');
 Route::get('ShowMessage/{id}', [MessageController::class, 'show'])->name('ShowMessage');
+Route::delete('deleteMessage',[MessageController::class, 'destroy'])->name('deleteMessage');
 
 
 
