@@ -66,7 +66,16 @@
                             <img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit">
                         </a>
                     </td>
-                    <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
+                    <td>
+                        <form id="delete-form-{{ $beverage->id }}" action="{{ route('deleteBeverage') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="id" value="{{ $beverage->id }}">
+                        </form>
+                        <a href="#" onclick="event.preventDefault(); if(confirm('Are you sure you want to delete?')) { document.getElementById('delete-form-{{ $beverage->id }}').submit(); }">
+                            <img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete">
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
                     

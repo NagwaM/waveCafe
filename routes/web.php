@@ -27,12 +27,14 @@ Route::get('ShowAddCategory', [CategoryController::class, 'create'])->name('Show
 Route::post('AddCategory', [CategoryController::class, 'store'])->name('AddCategory');
 Route::get('ShowEditCategory/{id}',[CategoryController::class, 'edit'])->name('ShowEditCategory');
 Route::put('editCategory/{id}',[CategoryController::class, 'update'])->name('editCategory');
+Route::delete('deleteCategory',[CategoryController::class, 'destroy'])->name('deleteCategory');
 
 Route::get('beverages', [BeverageController::class, 'index'])->name('beverages');
 Route::get('ShowAddBeverage', [BeverageController::class, 'create'])->name('ShowAddBeverage');
 Route::post('AddBeverage', [BeverageController::class, 'store'])->name('AddBeverage');
 Route::get('ShowEditBeverage/{id}',[BeverageController::class, 'edit'])->name('ShowEditBeverage');
 Route::put('editBeverage/{id}',[BeverageController::class, 'update'])->name('editBeverage');
+Route::delete('deleteBeverage',[BeverageController::class, 'destroy'])->name('deleteBeverage');
 
 
 Route::get('messages', [AdminPages::class, 'message'])->name('messages');

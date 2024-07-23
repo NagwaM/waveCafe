@@ -79,9 +79,16 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $category = Category::findOrFail($request->id);
+
+        if ($category->canBeDeleted()) {
+            $category->delete();
+            return redirect()->route('categories')->with('success', 'Category deleted successfully.');
+        } else {
+            return redirect()->route('categories')->with('error', 'Category cannot be deleted because it has associated beverages.');
+        }
     }
 
     /**

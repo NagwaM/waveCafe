@@ -43,6 +43,18 @@
                 <div class="row">
                     <div class="col-sm-12">
                     <div class="card-box table-responsive">
+
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                 <tr>
@@ -62,7 +74,16 @@
                                 <img src="{{ asset('assetsAdmin/images/edit.png') }}" alt="Edit">
                             </a>
                         </td>
-                        <td><img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete"></td>
+                        <td>
+                            <form id="delete-form-{{ $category->id }}" action="{{ route('deleteCategory') }}" method="POST" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="id" value="{{ $category->id }}">
+                            </form>
+                            <a href="#" onclick="if(confirm('Are you sure you want to delete this category?')) { document.getElementById('delete-form-{{ $category->id }}').submit(); } return false;">
+                                <img src="{{ asset('assetsAdmin/images/delete.png') }}" alt="Delete">
+                            </a>
+                        </td>
                     </tr>
                     @endforeach
                 

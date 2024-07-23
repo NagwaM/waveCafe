@@ -11,4 +11,14 @@ class Category extends Model
     protected $fillable = [
         'categoryName',
     ];
+
+    public function beverages()
+    {
+        return $this->hasMany(Beverage::class);
+    }
+
+    public function canBeDeleted()
+    {
+        return $this->beverages()->count() == 0;
+    }
 }
